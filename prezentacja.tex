@@ -1,0 +1,146 @@
+\documentclass{beamer}%
+\usetheme{Boadilla}%Berlin}
+\input{template.tex}
+\newcommand\colab{{\color{blue} COLAB \pause}} 
+\hypersetup{colorlinks=true,linkcolor=blue,urlcolor=blue} 
+%https://medium.com/@raycad.seedotech/convolutional-neural-network-cnn-8d1908c010ab
+
+\begin{document}
+\title{Jak Sztuczna inteligencja widzi świat?}
+\author[K. Podlaski]{Krzysztof Podlaski\\{\tiny podlaski@uni.lodz.pl}}
+\institute[KSI UŁ]{ \tiny Katedra Systemów Inteligentnych\\Wydział Fizyki i Informatyki Stosowanej\\Uniwersytet Łódzki}
+
+\date[5 XI 2025]{{\small Łódzkie Dni Informatyki,}\\ {\tiny Wydział Fizyki i Informatyki Stosowanej,\\ Uniwersytet Łódzki,\\
+5 listopada 2025}}
+
+
+\begin{frame}
+\titlepage
+\end{frame}
+
+\begin{frame}{Agenda}
+\tableofcontents
+\end{frame}
+
+\section{Czym dla maszyny jest obraz}
+
+\begin{frame}
+  \frametitle{Digitalizacja obrazu}
+  \begin{outline}
+    \1 Obraz rzeczywisty,
+    \1 Obraz zdigitalizowany \colab 
+      \2 RGB
+  \end{outline}
+\end{frame}
+
+
+\section{Elementy sieci Konwolucyjnych}
+\subsection{Konwolucja}
+
+\begin{frame}
+  \frametitle{Operacja Konwolucji (Splotu)}
+  \begin{outline}
+    \1 Nakładanie na obraz filtrów
+      \2 Zwanych często jądrami operacji
+      \2 Kernel (ang.)
+    \1 Filtry nakładane są fragmentami (oknami)
+      \2 Okno porusza się nad obrazem 
+        \3 Łącząc obraz źródłowy z filtrem
+      \2 Otrzymujemy przetworzony obraz 
+    \1 Przykład \href{https://en.wikipedia.org/wiki/Convolution}{animacja www} \pause \colab
+    %https://medium.com/@RaghavPrabhu/understanding-of-convolutional-neural-network-cnn-deep-learning-99760835f148
+  \end{outline}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Standardowe filtry}
+  Dobrze znane filtry:
+  \begin{outline}
+    \1 Wygładzanie 
+      \2 Smoothing, blur (ang.)
+      \3 Box blur, gauss blur, ....
+    \1 Wyostrzanie
+      \2 Sharpen
+    \1 Wykrywanie krawędzi
+      \2 Edge detection (ang.) 
+    \end{outline}
+\end{frame}
+
+\subsection{Operacja łączenia}
+\begin{frame}
+  \frametitle{Zmniejszanie rozmiaru, uogólnianie informacji}
+  \begin{outline}
+    \1 Poruszamy się oknem nad obrazem
+      \2 Troszkę jak w konwolucji
+      \2 Całe okno zamieniamy na jedną wartość \href{https://en.wikipedia.org/wiki/Pooling_layer}{www}\pause
+    \1 Możliwe operacje
+      \2 Zostawiamy wartość maksymalną
+        \3 Max Pooling (ang.)
+      \2 Zostawiamy wartość średnią
+        \3 Ang Pooling (and.)
+      \2 Zostawiamy wartość minimalną
+        \3 Min Pooling (ang.) 
+  \end{outline}
+\end{frame}
+
+\subsection{Neuron}
+\begin{frame}
+  \frametitle{Neuron (Perceptron)}
+  \begin{outline}
+    \1 Neuron jako operacja sumy ważonej
+      \2 Dla każdego kanału wejścia
+      \2 Przydzielamy wagę
+      \2 Mając sygnał wejściowy sumujemy (wartość kanału wejścia)*(waga kanału)
+    \1 Możemy nakładać próg aktywacji
+      \2 Bias (ang.)
+    \1 Na wyjście często nakładamy metodę aktywacji
+      \2 Relu
+      \2 Sigmoid
+      \2 Tanh
+    \1 \href{https://en.wikipedia.org/wiki/Artificial_neuron} {www}
+  \end{outline}
+\end{frame}
+
+
+\subsection{Sieci neuronowe}
+\begin{frame}
+  \frametitle{Sieć warstwowa}
+  \begin{outline}
+    \1 Sieć neuronowa jednokierunkowa 
+      \2 Ustawione kolejno warstwy
+        \3 Wyjście warstwy jest sygnałem wejściowym dla następnej
+      \2 Pierwsza warstwa przyjmuje sygnał wejściowy
+        \3 Może to być obrazek
+      \2 Wyjście z ostatniej warstwy jest wynikiem działania sieci neuronowej
+    \1 Sieci uczy się wykonywania odpowiednich zadań
+      \2 Najczęściej algorytm propagacji wstecznej lub jego pochodne
+      \2 Zbiory danych
+        \3 Uczący
+        \3 Walidacyjny i Testowy
+        \3 Zbiory powinny być rozłączne
+  \end{outline}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Zadania sieci neuronowych}
+  \begin{outline}
+    \1 Klasyfikacja 
+    \1 Regresja
+    \1 Generowanie obiektu podobnego do wejścia
+    \1 Generowanie tekstu (LLM)
+  \end{outline}
+\end{frame}
+
+\begin{frame}
+  \frametitle{Standardowa architektura sieci klasyfikującej obrazy}
+  \begin{outline}
+    \1 Sygnał wejściowy jest obrazkiem 
+      \2 Bloki warstw
+        \3 Konwolucyjna
+        \3 Łącząca
+      \2 Warstwy gęste
+    \1 Przykład działania sieci CNN \url{https://poloclub.github.io/cnn-explainer}
+  \end{outline}
+\end{frame}
+\end{document}
+

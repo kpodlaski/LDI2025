@@ -1,0 +1,10 @@
+services:
+    jupyter:
+        build:
+            context: .
+        ports:
+            - 8888:8888
+        volumes:
+            - ./data:/home/jovyan/work
+        command: start-notebook.py --NotebookApp.token='ldi2025'
+

@@ -1,0 +1,102 @@
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{amsopn}
+%\usepackage{cite}
+\usepackage{pdflscape}
+\usepackage{afterpage}
+\usepackage{changepage}
+\usepackage{caption}
+\usepackage{colortbl}
+\usepackage{adjustbox}
+\usepackage{hyperref}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{tabularx}
+\usepackage{multicol}
+%\usepackage[style=authoryear]{biblatex}
+%\bibliography{revbibl}
+\usepackage{graphicx}
+\usepackage{cite}
+\usepackage{apacite}
+\usepackage{outlines}
+\setlength{\arrayrulewidth}{1pt}
+\usepackage{tikz}
+    \usetikzlibrary{positioning}
+    \usetikzlibrary{decorations.pathreplacing}
+    \usetikzlibrary{fadings}
+    \usetikzlibrary{matrix}
+
+\tikzset{basic/.style={draw,fill=blue!20,text width=1em,text badly centered}}
+\tikzset{input/.style={basic,circle}}
+\tikzset{weights/.style={basic,rectangle}}
+\tikzset{functions/.style={basic,circle,fill=blue!10}}
+\tikzset{hidden/.style={draw,shape=circle,fill=blue!30,minimum size=1.15cm}}
+\tikzset{output/.style={draw,shape=circle,fill=red!20,minimum size=1.15cm}}
+
+\newcommand\blfootnote[1]{%
+  \begingroup
+  \renewcommand\thefootnote{}\footnote{#1}%
+  \addtocounter{footnote}{-1}%
+  \endgroup
+}
+
+\makeatother
+\setbeamertemplate{footline}
+{
+  \leavevmode%
+  \hbox{%
+  \begin{beamercolorbox}[wd=.2\paperwidth,ht=2.25ex,dp=1ex,center]{author in head/foot}%
+    \usebeamerfont{author in head/foot}\insertshortauthor
+  \end{beamercolorbox}%
+  \begin{beamercolorbox}[wd=.8\paperwidth,ht=2.25ex,dp=1ex,center]{title in head/foot}%
+    \usebeamerfont{title in head/foot}
+    \insertshorttitle{}\hspace*{12ex}
+    \insertframenumber/\inserttotalframenumber%\hspace*{1ex}
+  \end{beamercolorbox}
+  }%
+  \vskip0pt%
+}
+\makeatletter
+\setbeamertemplate{navigation symbols}{}
+
+\theoremstyle{definition}
+\newtheorem*{proposition}{Proposition}
+
+\theoremstyle{definition}
+\newtheorem*{enboxed}{}
+
+
+
+\newcommand{\srcsize}{\@setfontsize{\srcsize}{5pt}{5pt}}
+
+\AtBeginSection[]{
+    \begin{frame}
+    \vfill
+    \centering
+    \begin{beamercolorbox}[sep=8pt, center, shadow=true,rounded=true]{title}
+    \usebeamerfont{title}\insertsectionhead\par
+    \end{beamercolorbox}
+    \vfill\end{frame}
+}
+
+
+\AtBeginSubsection[]{
+    \begin{frame}
+    \vfill
+    \centering
+    \begin{minipage}{0.6\textwidth}
+     \begin{beamercolorbox}[sep=8pt, center, shadow=true,rounded=true]{title}
+     \usebeamerfont{title}
+
+        \begin{outline}
+            \1[] \insertsectionhead
+            \2 \insertsubsectionhead
+        \end{outline}
+    \end{beamercolorbox}
+    \end{minipage}
+    \vfill
+    \end{frame}
+}
