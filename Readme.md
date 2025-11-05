@@ -8,3 +8,5 @@ Aby uruchomić kod pythona należy:
  - wgrać obrazek, dla przykładu plik tecza.jpg (orginał obrazka znajduje się plik pobrano z adresu https://www.istshare.eu/images/zdjecia/tecza.jpg)
  - uruchomić kolejno komórki Notatnika 
  - zalecam modyfikacje kodu lub podmianę obrazka tęczy na inne. Pozowli to na odkrywanie własnych filtrów jak i lepszego zrozumienia ich działania na obrazy.
+
+Osoby korzystające z środowiska Docker, mogą skorzystać z lokalnego serwera JupyterLab aby uruchomić Notatnik. Zalecam uruchomienie kontenera docker z pomocą pliku [compose.yaml](jupyter_docker/compose.yaml).
